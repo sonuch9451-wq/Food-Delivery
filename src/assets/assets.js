@@ -84,11 +84,11 @@ export const assets = {
 
 export const menu_list = [
     {
-        menu_name: "Salad",
+        menu_name: "Salade",
         menu_image: menu_1
     },
     {
-        menu_name: "Rolls",
+        menu_name: "Role",
         menu_image: menu_2
     },
     {
@@ -320,7 +320,7 @@ export const food_list = [
         category: "Pasta"
     }, {
         _id: "29",
-        name: "Buttter Noodles",
+        name: "Butter Noodles",
         image: food_29,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",

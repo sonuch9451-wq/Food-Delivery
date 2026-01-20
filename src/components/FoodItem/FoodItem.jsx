@@ -1,15 +1,24 @@
 import React, { useContext } from 'react'
 import './FoodItem.css'
-import { assets } from '../../../public/frontend_assets/assets'
+import {assets} from '../../assets/assets'
 import { StoreContext } from '../../Context/StoreContext'
+import { motion } from 'framer-motion'
+
 const FoodItem = ({_id,name,price,description,image}) => {
 
     
-    const {cartItems,addToCart,removeFromCart} = useContext(StoreContext);
+    const {cartItems = {},addToCart,removeFromCart,url} = useContext(StoreContext);
   return (
-    <div className='food-item'>
+    <motion.div 
+      className='food-item'
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.3 }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
         <div className="food-item-img-container">
-            <img className='food-item-image' src={image} alt="" />
+            <img className='food-item-image' src={url+'/images/'+image} alt="" />
             { !cartItems[_id]
             ?  (<img className='add' onClick={()=>addToCart(_id)} src={assets.add_icon_white} alt="" />)
                 :(<div className="food-item-counter">
@@ -25,10 +34,10 @@ const FoodItem = ({_id,name,price,description,image}) => {
                 <img src={assets.rating_starts} alt="" />
             </div>
             <p className='food-item-decs'>{description}</p>
-            <p className='food-item-price'>${price}</p>
+            <p className='food-item-price'>₹{price}</p>
         </div>
       
-    </div>
+    </motion.div>
   )
 }
 

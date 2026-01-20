@@ -7,6 +7,9 @@ import Order from './pages/placeOrder/Order'
 import Footer from './components/Footer/Footer'
 import AppDownload from './components/AppDownload/AppDownload'
 import LoginPop from './components/LoginPop/LoginPop'
+import Verify from './pages/verify/Verify'
+import MyOrder from './pages/myOrders/MyOrder'
+import { Toaster } from 'react-hot-toast'
 
 
 
@@ -23,10 +26,13 @@ const App = () => {
         <Route path='/' element={<Home/>} />
         <Route path='/cart' element={<Cart/>} />
         <Route path='/order' element={<Order/>} />
+        <Route path='/verify' element={<Verify/>} />
+        <Route path='/myorders' element={<MyOrder/>} />
       </Routes>
       <AppDownload />
       <Footer />
     </div>
+    <Toaster position="top-right" reverseOrder={false} />
     </>
     
   )
